@@ -405,7 +405,7 @@ class RabbitMQQueue extends BaseRabbitMQQueue
 ### Default Queue
 
 The connection does use a default queue with value 'default', when no queue is provided by laravel.
-It is possible to change te default queue by adding an extra parameter in the connection config.
+It is possible to change the default queue by adding an extra parameter in the connection config.
 
 ```php
 'connections' => [
@@ -528,6 +528,33 @@ Available protocols : `tcp`, `ssl`, `tls`
     ],
 
     // ...    
+],
+```
+
+### Network Timeouts
+
+For network timeouts configuration you can use option parameters.
+All float values are in seconds and zero value can mean infinite timeout.
+Example contains default values.
+
+```php
+'connections' => [
+    // ...
+
+    'rabbitmq' => [
+        // ...
+
+        'options' => [
+            // ...
+
+            'connection_timeout' => 3.0,
+            'read_timeout' => 3.0,
+            'write_timeout' => 3.0,
+            'channel_rpc_timeout' => 0.0,
+        ],
+    ],
+
+    // ...
 ],
 ```
 
